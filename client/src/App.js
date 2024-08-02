@@ -1,10 +1,13 @@
-import { MetabaseProvider, InteractiveQuestion } from "@metabase/embedding-sdk-react";
+import {
+  MetabaseProvider,
+  InteractiveQuestion,
+} from "@metabase/embedding-sdk-react";
 
 // Configuration
 const config = {
   metabaseInstanceUrl: process.env.REACT_APP_METABASE_INSTANCE_URL,
-  jwtProviderUri: process.env.REACT_APP_JWT_PROVIDER_URI
-}
+  jwtProviderUri: process.env.REACT_APP_JWT_PROVIDER_URI,
+};
 
 const questionId = 14;
 
@@ -36,18 +39,25 @@ const theme = {
     shadow: "rgba(0,0,0,0.08)",
   },
 
-  table: {
-    cell: {
-      textColor: "#4C5773",
+  components: {
+    question: {
       backgroundColor: "#FFFFFF",
+      textColor: "#4C5773",
     },
 
-    idColumn: {
-      textColor: "#9B5966",
-      backgroundColor: "#F5E9EB",
+    table: {
+      cell: {
+        textColor: "#4C5773",
+        backgroundColor: "#FFFFFF",
+      },
+
+      idColumn: {
+        textColor: "#9B5966",
+        backgroundColor: "#F5E9EB",
+      },
     },
   },
-}
+};
 
 function App() {
   return (
