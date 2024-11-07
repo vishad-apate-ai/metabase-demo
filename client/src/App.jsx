@@ -5,8 +5,8 @@ import {
 
 // Configuration
 const config = {
-  metabaseInstanceUrl: process.env.REACT_APP_METABASE_INSTANCE_URL,
-  jwtProviderUri: process.env.REACT_APP_JWT_PROVIDER_URI,
+  metabaseInstanceUrl: import.meta.env.VITE_METABASE_INSTANCE_URL,
+  jwtProviderUri: import.meta.env.VITE_JWT_PROVIDER_URI,
 };
 
 const questionId = 14;
