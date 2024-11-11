@@ -1,17 +1,19 @@
 import {
   MetabaseProvider,
   InteractiveQuestion,
+  defineEmbeddingSdkTheme,
+  defineEmbeddingSdkConfig
 } from "@metabase/embedding-sdk-react";
 
 // Configuration
-const config = {
+const config = defineEmbeddingSdkConfig({
   metabaseInstanceUrl: import.meta.env.VITE_METABASE_INSTANCE_URL,
   jwtProviderUri: import.meta.env.VITE_JWT_PROVIDER_URI,
-};
+});
 
 const questionId = 14;
 
-const theme = {
+const theme = defineEmbeddingSdkTheme({
   // Specify a font to use from the set of fonts supported by Metabase.
   // You can set the font to "Custom" to use the custom font
   // configured in your Metabase instance.
@@ -57,7 +59,7 @@ const theme = {
       },
     },
   },
-};
+});
 
 function App() {
   return (
