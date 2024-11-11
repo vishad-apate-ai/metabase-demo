@@ -2,7 +2,7 @@ import {
   MetabaseProvider,
   InteractiveQuestion,
   defineEmbeddingSdkTheme,
-  defineEmbeddingSdkConfig
+  defineEmbeddingSdkConfig,
 } from "@metabase/embedding-sdk-react";
 
 // Configuration
