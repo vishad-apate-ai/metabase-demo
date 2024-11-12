@@ -13,7 +13,7 @@ cp .env.example .env
 
 ## Adjust URLs
 
-In `.env`, make sure `REACT_APP_METABASE_INSTANCE_URL` and `METABASE_INSTANCE_URL` point to your Metabase instance URL, e.g. `http://localhost:3000`.
+In `.env`, make sure your `VITE_METABASE_INSTANCE_URL` and `METABASE_INSTANCE_URL` point to your Metabase instance URL, e.g. `http://localhost:3000`.
 
 ## Set up your Metabase
 
