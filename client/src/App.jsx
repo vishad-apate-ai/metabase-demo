@@ -8,7 +8,7 @@ import {
 // Configuration
 const config = defineEmbeddingSdkConfig({
   metabaseInstanceUrl: import.meta.env.VITE_METABASE_INSTANCE_URL,
-  jwtProviderUri: import.meta.env.VITE_JWT_PROVIDER_URI,
+  authProviderUri: import.meta.env.VITE_AUTH_PROVIDER_URI,
 });
 
 const questionId = 14;
