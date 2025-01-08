@@ -3,7 +3,7 @@
 You'll need a Pro or Enterprise version of Metabase 52 up and running. If you're not sure where to start, sign up for [Pro Cloud](https://www.metabase.com/pricing).
 
 > [!IMPORTANT]
-> The SDK is currently only compatible with Metabase v1.50 or higher
+> The SDK is compatible with Metabase v1.51 or higher
 
 ## Create `.env` file
 
