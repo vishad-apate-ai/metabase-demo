@@ -1,6 +1,6 @@
 # Metabase embedding SDK for React sample application
 
-You'll need a Pro or Enterprise version of Metabase 50 up and running. If you're not sure where to start, sign up for [Pro Cloud](https://www.metabase.com/pricing).
+You'll need a Pro or Enterprise version of Metabase 52 up and running. If you're not sure where to start, sign up for [Pro Cloud](https://www.metabase.com/pricing).
 
 > [!IMPORTANT]
 > The SDK is currently only compatible with Metabase v1.50 or higher
@@ -28,7 +28,7 @@ On the card that says **JWT**, click the **Setup** button.
 
 ### JWT identity provider URI
 
-In the **JWT IDENTITY PROVIDER URI** field, paste  `localhost:9090/sso/metabase` (or substitute your Cloud URL for localhost).
+In the **JWT IDENTITY PROVIDER URI** field, paste `localhost:9090/sso/metabase` (or substitute your Cloud URL for localhost).
 
 In your `.env` this address is set as:
 
