@@ -1,19 +1,21 @@
+/// <reference types="vite/client" />
+
 import {
   MetabaseProvider,
   InteractiveQuestion,
-  defineEmbeddingSdkTheme,
-  defineEmbeddingSdkConfig,
+  defineMetabaseAuthConfig,
+  defineMetabaseTheme,
 } from "@metabase/embedding-sdk-react";
 
 // Configuration
-const config = defineEmbeddingSdkConfig({
+const config = defineMetabaseAuthConfig({
   metabaseInstanceUrl: import.meta.env.VITE_METABASE_INSTANCE_URL,
   authProviderUri: import.meta.env.VITE_AUTH_PROVIDER_URI,
 });
 
 const questionId = 14;
 
-const theme = defineEmbeddingSdkTheme({
+const theme = defineMetabaseTheme({
   // Specify a font to use from the set of fonts supported by Metabase.
   // You can set the font to "Custom" to use the custom font
   // configured in your Metabase instance.
@@ -44,7 +46,6 @@ const theme = defineEmbeddingSdkTheme({
   components: {
     question: {
       backgroundColor: "#FFFFFF",
-      textColor: "#4C5773",
     },
 
     table: {
@@ -63,8 +64,8 @@ const theme = defineEmbeddingSdkTheme({
 
 function App() {
   return (
-    <div className="App" width="1200px" height="800px">
-      <MetabaseProvider config={config} theme={theme}>
+    <div className="App" style={{ width: "1200px", height: "800px" }}>
+      <MetabaseProvider authConfig={config} theme={theme}>
         <InteractiveQuestion questionId={questionId} />
       </MetabaseProvider>
     </div>
