@@ -12,13 +12,20 @@ const AUTH_PROVIDER_PORT = process.env.AUTH_PROVIDER_PORT;
 const METABASE_INSTANCE_URL = process.env.METABASE_INSTANCE_URL;
 const METABASE_JWT_SHARED_SECRET = process.env.METABASE_JWT_SHARED_SECRET;
 
-app.use(cors({ credentials: true, origin: true })); //https://stackoverflow.com/a/66437447
+const corsOptions = {
+  origin: 'http://localhost:3100',
+  credentials: true,
+};
+app.use(cors(corsOptions));
+// Handle preflight OPTIONS requests (very important for auth APIs)
+app.options('*', cors(corsOptions));
 
 app.get("/sso/metabase", async (req, res) => {
-  // Usually, you would grab the user from the current session
-  // Here it is hardcoded for demonstration purposes
-  // Example:
-  // const { user } = req.session;
+  // --- Add these lines ---
+  console.log("===== New /sso/metabase Request =====");
+  console.log("Origin header:", req.headers.origin);
+  console.log("Request headers:", req.headers);
+
   const user = {
     email: "rene@example.com",
     firstName: "Rene",

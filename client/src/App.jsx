@@ -8,11 +8,23 @@ import {
 } from "@metabase/embedding-sdk-react";
 
 // Configuration
+// const config = defineMetabaseAuthConfig({
+//   metabaseInstanceUrl: import.meta.env.VITE_METABASE_INSTANCE_URL,
+// });
+
 const config = defineMetabaseAuthConfig({
-  metabaseInstanceUrl: import.meta.env.VITE_METABASE_INSTANCE_URL,
+  metabaseInstanceUrl:"http://localhost:3000",
+  fetchRequestToken: async () => {
+    const res = await fetch("http://localhost:9090/sso/metabase?response=json", {
+      method: "GET",
+      credentials: "include",
+    });
+    return res.json();
+  }
 });
 
-const questionId = 24;
+
+const questionId = 164;
 
 const theme = defineMetabaseTheme({
   // Specify a font to use from the set of fonts supported by Metabase.
