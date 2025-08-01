@@ -13,7 +13,13 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     server: {
       // eslint-disable-next-line no-undef
-      port: devPort
+      port: devPort,
+      proxy: {
+        '/sso': {
+          target: 'http://localhost:9090',
+          changeOrigin: false,
+        },
+      },
     },
     preview: {
       port: previewPort

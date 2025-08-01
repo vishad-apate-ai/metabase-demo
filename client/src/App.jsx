@@ -6,25 +6,22 @@ import {
   defineMetabaseAuthConfig,
   defineMetabaseTheme,
 } from "@metabase/embedding-sdk-react";
+import { useEffect, useState } from "react";
 
 // Configuration
-// const config = defineMetabaseAuthConfig({
-//   metabaseInstanceUrl: import.meta.env.VITE_METABASE_INSTANCE_URL,
-// });
-
 const config = defineMetabaseAuthConfig({
-  metabaseInstanceUrl:"http://localhost:3000",
   fetchRequestToken: async () => {
     const res = await fetch("http://localhost:9090/sso/metabase?response=json", {
       method: "GET",
       credentials: "include",
     });
     return res.json();
-  }
+  },
+  metabaseInstanceUrl: "http://localhost:3000",
 });
 
 
-const questionId = 164;
+const questionId = 374;
 
 const theme = defineMetabaseTheme({
   // Specify a font to use from the set of fonts supported by Metabase.
@@ -74,6 +71,23 @@ const theme = defineMetabaseTheme({
 });
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    // Handle auth callback from server redirect
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+    
+    if (token) {
+      // Store the token or handle authentication
+      console.log("Received auth token:", token);
+      setIsAuthenticated(true);
+      
+      // Clean up the URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, []);
+
   return (
     <div className="App" style={{ width: "1200px", height: "800px" }}>
       <MetabaseProvider authConfig={config} theme={theme}>
